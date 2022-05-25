@@ -1,0 +1,6 @@
+@startuml other-diagram
+
+:start;
+:stop;
+
+@enduml
