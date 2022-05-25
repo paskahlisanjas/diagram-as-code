@@ -1,0 +1,8 @@
+@startuml some diagram
+
+start
+:start;
+:stop;
+stop
+
+@enduml
