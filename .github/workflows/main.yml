@@ -9,19 +9,53 @@ on:
 
 jobs:
   generate-diagrams:
+    env:
+      UML_FILES: ".puml"
     runs-on: ubuntu-latest
     steps:
     
       - name: Checkout
         uses: actions/checkout@v3
         
-      - name: Generate Diagrams
-        uses: grassedge/generate-plantuml-action@v1.5
+      - name: Get changed UML files
+        id: getfile
+        run: |
+          git diff-tree -r --no-commit-id --summary ${{ github.sha }} \
+          | awk -F' ' '{
+            # ensure we are not trying to process deleted files
+            # only process puml files
+            # do not try to process our theme or custom config
+            if ( $1 !~ /^delete$/ && $4 ~ /\.puml$/ && $4 !~ /(theme|config)\.puml$/ )
+            {
+              # only print the file name and strip newlines for spaces
+              printf "::set-output name=files::" "%s ", $4
+            }
+          }
+          END { print "" } # ensure we do print a newline at the end
+          '
+      
+      - name: Echo files
+        run: |
+          echo ${{ steps.getfile.outputs.files }}
+          
+      - name: Generate SVG Diagrams
+        uses: cloudbees/plantuml-github-action@master
         with:
-          path: docs/diagrams
-          message: "chore: generate diagrams"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+            args: -v -tsvg ${{ steps.getfile.outputs.files }}
+
+      - name: Generate PNG Diagrams
+        uses: cloudbees/plantuml-github-action@master
+        with:
+            args: -v -tpng ${{ steps.getfile.outputs.files }}
+
+      - name: Push Local Changes
+        uses:  stefanzweifel/git-auto-commit-action@v4.14.1
+        with: 
+          commit_user_name: "diagram-generator"
+          commit_user_email: "pjaswo1204@gmail.com"
+          commit_author: "Diagram Generator <pjaswo1204@gmail.com>"
+          commit_message: "chore: re-generate UML diagrams" 
+          branch: ${{ github.head_ref }}
           
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v1
