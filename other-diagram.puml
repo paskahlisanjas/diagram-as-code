@@ -1,6 +1,7 @@
 @startuml other-diagram
 
 :start;
+:something;
 :stop;
 
 @enduml
