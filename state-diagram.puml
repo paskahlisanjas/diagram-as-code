@@ -1,0 +1,10 @@
+@startuml
+hide empty description
+
+[*] --> PENDING_COMPLIANCE_VERIFICATION: creates a new record &\nwaiting for compliance verification
+PENDING_COMPLIANCE_VERIFICATION --> BLACKLISTED: Compliance team rejects
+PENDING_COMPLIANCE_VERIFICATION --> WHITELISTED: Compliance team approves
+
+WHITELISTED --> [*]
+BLACKLISTED --> [*]
+@enduml
