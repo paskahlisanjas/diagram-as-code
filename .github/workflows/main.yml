@@ -21,7 +21,7 @@ jobs:
         id: getfile
         uses: technote-space/get-diff-action@v6
         with:
-          PATTERNS: *.puml
+          PATTERNS: '*.puml'
           
       - name: Generate SVG Diagrams
         uses: cloudbees/plantuml-github-action@master
@@ -29,7 +29,7 @@ jobs:
             args: -v -tsvg ${{ steps.getfile.outputs.diff }}
 
       - name: Push Local Changes
-        uses:  stefanzweifel/git-auto-commit-action@v4.14.1
+        uses: stefanzweifel/git-auto-commit-action@v4.14.1
         with: 
           commit_user_name: "diagram-generator"
           commit_user_email: "pjaswo1204@gmail.com"
