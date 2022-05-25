@@ -20,7 +20,7 @@ jobs:
       - name: Get changed UML files
         id: getfile
         run: |
-          echo "::set-output name=files::$(git diff --name-only main | grep .puml | xargs)"
+          echo "::set-output name=files::$(git diff --name-only origin/main | grep .puml | xargs)"
       
       - name: Echo files
         run: |
