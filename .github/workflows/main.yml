@@ -48,7 +48,7 @@ jobs:
         uses: thollander/actions-comment-pull-request@v1
         with:
           message: |
-            Your diagram is ready to serve
+            Your new diagram is ready
             ![new-diagram](https://raw.githubusercontent.com/paskahlisanjas/diagram-as-code/${{ github.event.pull_request.head.sha }}/${{ steps.getdiagramdir.outputs.diagramdir }})
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
