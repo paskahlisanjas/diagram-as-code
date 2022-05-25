@@ -28,6 +28,13 @@ jobs:
         with:
             args: -v -tsvg ${{ steps.getfile.outputs.diff }}
 
+      - name: Generate Diagrams' directory
+        id: getdiagramdir
+        run: |
+          DIAGRAM_CODE=${{ steps.getfile.outputs.diff }}
+          DIAGRAM_IMG="${DIAGRAM_CODE//.puml/.svg}"
+          echo "::set-output name=diagramdir::$DIAGRAM_IMG"
+
       - name: Push Local Changes
         uses: stefanzweifel/git-auto-commit-action@v4.14.1
         with: 
@@ -36,12 +43,13 @@ jobs:
           commit_author: "Diagram Generator <pjaswo1204@gmail.com>"
           commit_message: "chore: re-generate UML diagrams" 
           branch: ${{ github.head_ref }}
-          
+
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v1
         with:
           message: |
             Your diagram is ready to serve
+            ![new-diagram](${{ steps.getdiagramdir.outputs.diagramdir }})
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
 
