@@ -16,12 +16,15 @@ jobs:
     
       - name: Checkout
         uses: actions/checkout@v3
-        fetch-depth: ''
         
       - name: Get changed UML files
         id: getfile
         run: |
-          echo "::set-output name=files::$(git diff --name-only HEAD^..HEAD | grep .puml | xargs)"
+          echo "::set-output name=files::$(git diff --name-only origin/main | grep .puml | xargs)"
+      
+      - name: Echo files
+        run: |
+          echo ${{ steps.getfile.outputs.files }}
           
       - name: Generate SVG Diagrams
         uses: cloudbees/plantuml-github-action@master
