@@ -49,7 +49,7 @@ jobs:
         with:
           message: |
             Your diagram is ready to serve
-            ![new-diagram](${{ steps.getdiagramdir.outputs.diagramdir }})
+            ![new-diagram](https://raw.githubusercontent.com/paskahlisanjas/diagram-as-code/${{ github.sha }}/${{ steps.getdiagramdir.outputs.diagramdir }})
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
 
