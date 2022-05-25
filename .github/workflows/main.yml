@@ -36,6 +36,7 @@ jobs:
           echo "::set-output name=diagramdir::$DIAGRAM_IMG"
 
       - name: Push Local Changes
+        id: pushchanges
         uses: stefanzweifel/git-auto-commit-action@v4.14.1
         with: 
           commit_user_name: "diagram-generator"
@@ -49,5 +50,5 @@ jobs:
         with:
           message: |
             Your new diagram is ready
-            ![new-diagram](https://raw.githubusercontent.com/paskahlisanjas/diagram-as-code/${{ github.event.pull_request.head.sha }}/${{ steps.getdiagramdir.outputs.diagramdir }})
+            ![new-diagram](https://raw.githubusercontent.com/paskahlisanjas/diagram-as-code/${{ steps.pushchanges.outputs.commit_hash }}/${{ steps.getdiagramdir.outputs.diagramdir }})
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
