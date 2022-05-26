@@ -1,0 +1,51 @@
+@startuml
+|va-created|
+start
+
+-> Receive notification
+from CVA;
+if (VA status is ACTIVE) then (yes)
+:Update VA's status
+from PENDING to ACTIVE;
+note left
+Should only affect VA with
+PENDING status to maintain
+idempotency
+end note
+:Publish event to
+va-activated;
+-[#black,dotted]->
+else (no)
+stop
+endif
+
+|va-created|
+
+|va-activated|
+if (VA status is ACTIVE) then (yes)
+:Check blacklist name
+(assess risk score);
+note right
+Should be no issue
+with idempotency,
+but as alternative
+can also check
+the record first if the
+risk score is attached
+already
+end note
+
+:Update VA's risk score;
+
+:Publish event to
+va-risk-scored;
+stop
+
+else (no)
+stop
+
+endif
+
+
+|va-activated|
+@enduml
