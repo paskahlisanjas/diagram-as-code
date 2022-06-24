@@ -9,5 +9,6 @@ Alice -> Bobby : hello
 ref over Bobby
   This can be on
   several lines
+  WOHOO THIS WORKS!
 end ref
 @enduml
