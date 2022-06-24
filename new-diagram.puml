@@ -1,12 +1,12 @@
 @startuml
 participant Alice
-actor Bob
+actor Bobby
 
-ref over Alice, Bob : init
+ref over Alice, Bobby : init
 
-Alice -> Bob : hello
+Alice -> Bobby : hello
 
-ref over Bob
+ref over Bobby
   This can be on
   several lines
 end ref
