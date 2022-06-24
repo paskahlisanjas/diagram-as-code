@@ -1,0 +1,14 @@
+@startuml
+participant Alice
+actor Bobby
+
+ref over Alice, Bobby : THIS IS ANOTHER ONE
+
+Alice -> Bobby : hello
+
+ref over Bobby
+  This can be on
+  several lines
+  WOHOO THIS WORKS!
+end ref
+@enduml
