@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="328px" preserveAspectRatio="none" style="width:178px;height:328px;" version="1.1" viewBox="0 0 178 328" width="178px" zoomAndPan="magnify"><defs><filter height="300%" id="f17ba2g3tp5du9" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="33" x2="33" y1="86.2969" y2="241.0938"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="87" x2="87" y1="86.2969" y2="241.0938"/><rect fill="#FEFECE" filter="url(#f17ba2g3tp5du9)" height="30.2969" style="stroke: #A80036; stroke-width: 1.5;" width="46" x="8" y="51"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="32" x="15" y="70.9951">Alice</text><rect fill="#FEFECE" filter="url(#f17ba2g3tp5du9)" height="30.2969" style="stroke: #A80036; stroke-width: 1.5;" width="46" x="8" y="240.0938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="32" x="15" y="260.0889">Alice</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="70" y="82.9951">Bob</text><ellipse cx="87" cy="13" fill="#FEFECE" filter="url(#f17ba2g3tp5du9)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M87,21 L87,48 M74,29 L100,29 M87,48 L74,63 M87,48 L100,63 " fill="none" filter="url(#f17ba2g3tp5du9)" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="70" y="253.0889">Bob</text><ellipse cx="87" cy="266.3906" fill="#FEFECE" filter="url(#f17ba2g3tp5du9)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M87,274.3906 L87,301.3906 M74,282.3906 L100,282.3906 M87,301.3906 L74,316.3906 M87,301.3906 L100,316.3906 " fill="none" filter="url(#f17ba2g3tp5du9)" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FFFFFF" filter="url(#f17ba2g3tp5du9)" height="40.2656" style="stroke: #000000; stroke-width: 2.0;" width="98" x="5" y="96.2969"/><polygon fill="#EEEEEE" points="5,96.2969,71,96.2969,71,103.2969,61,113.2969,5,113.2969,5,96.2969" style="stroke: #000000; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="21" x="18" y="110.3638">ref</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="19" x="46.5" y="129.3638">init</text><polygon fill="#A80036" points="75,158.6953,85,162.6953,75,166.6953,79,162.6953" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="33" x2="81" y1="162.6953" y2="162.6953"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="30" x="40" y="157.6294">hello</text><rect fill="#FFFFFF" filter="url(#f17ba2g3tp5du9)" height="55.3984" style="stroke: #000000; stroke-width: 2.0;" width="100" x="67" y="170.6953"/><polygon fill="#EEEEEE" points="67,170.6953,133,170.6953,133,177.6953,123,187.6953,67,187.6953,67,170.6953" style="stroke: #000000; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="21" x="80" y="184.7622">ref</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="92" x="73" y="203.7622">This can be on</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="79" x="73" y="218.895">several lines</text><!--MD5=[1e49ba90c93d673ad16f801ceabc1e92]
+@startuml
+participant Alice
+actor Bob
+
+ref over Alice, Bob : init
+
+Alice -> Bob : hello
+
+ref over Bob
+  This can be on
+  several lines
+end ref
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 10:22:07 GMT 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.9+11-Ubuntu-0ubuntu1
+Operating System: Linux
+Default Encoding: ANSI_X3.4-1968
+Language: en
+Country: US
+--></g></svg>
