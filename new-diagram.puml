@@ -2,7 +2,7 @@
 participant Alice
 actor Bobby
 
-ref over Alice, Bobby : init changed again
+ref over Alice, Bobby : THIS IS ANOTHER ONE
 
 Alice -> Bobby : hello
 
